@@ -4,7 +4,7 @@ from fastapi.security import OAuth2PasswordBearer
 #from typing import Union
 
 app = FastAPI()
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="SHEBAK@2022")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="")
 
 
 
