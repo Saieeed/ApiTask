@@ -1,5 +1,8 @@
 from fastapi import Depends,FastAPI , Header, HTTPException ,Response,status
 from fastapi.security import OAuth2PasswordBearer
+import uvicorn 
+import json
+
 
 #from typing import Union
 
@@ -10,20 +13,24 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="")
 
 
 async def verify(token: str = Depends( oauth2_scheme ) ):
-    if token != "SHEBAK@2022":
+    f = open ('config.json', "r")
+    data = json.load(f)
+    print(data)
+    key = data["token"]
+    if token != key:
         #return "You are not authorized to use this API!"
-        return 0 
-    return 1
+        return False 
+    return True
     
 
 @app.get("/quote/random" ,dependencies=[Depends(verify)] , status_code= 200 )  
 async def read_items(  response : Response , check : int  = Depends(verify) ):  
-    if check == 0:
+    if check == False:
         response.status_code = status.HTTP_401_UNAUTHORIZED
-        return {"Message" :str(check) +" You are not authorized to use this API!" }
+        return {"Message" :" You are not authorized to use this API!" }
     else :
         response.status_code = status.HTTP_200_OK
-        return {str(check) +  "will be implemented"}
+        return { "will be implemented"}
 
 
 # import random
@@ -53,6 +60,5 @@ async def read_items(  response : Response , check : int  = Depends(verify) ):
 
 #     finally:
 #         print("Request ended")
-
-# if __name__ == "__main__":
-#     uvicorn.run(app)
+if __name__ == "__main__":
+    uvicorn.run(app)
