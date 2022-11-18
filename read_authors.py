@@ -10,9 +10,9 @@ def get_authors(number):
         df_nested_list.rename(columns = { 0 : "quoteId"}, inplace=True)
         #print(data)
         f.close()
-        return df_nested_list[df_nested_list.quoteId == number]
+        return df_nested_list[df_nested_list.quoteId == number].author.values[0]
     except:
         return []
     
     
-#print(get_authors(68))
+print(get_authors(8))
