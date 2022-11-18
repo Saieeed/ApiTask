@@ -13,11 +13,15 @@ class  myResponse :
         
         rand = self.generate_rand()   
         
-        quote = data.get_qoutes(rand ) 
-        self.quoteId = quote["id"]
-        self.quoteName = quote["quote"]
-        self.author = data.get_authors(self.quoteId)
-        
+        quote = data.get_qoutes(rand) 
+        try:
+            self.quoteId = quote["id"]
+            self.quoteName = quote["quote"]
+            self.author = data.get_authors(self.quoteId)
+        except:
+            self.quoteId = ""
+            self.quoteName = ""
+            self.author = ""
     
     
     

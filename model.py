@@ -10,10 +10,10 @@ class Model :
         try:
             # print(data)
             path_descreption = self.path["authors"]
-            print(path_descreption)
+            #print(path_descreption)
             g = open (path_descreption, "r")
             data = json.load(g)
-            print(data)
+            #print(data)
             g.close()
             
             df_nested_list = pd.json_normalize(data, record_path =['quoteIds'] , meta=['id' , 'author'])
@@ -33,7 +33,6 @@ class Model :
             #print(data)
             g.close()
         #  print(data[number])
-        
             return data[number]
         except:
             return []
