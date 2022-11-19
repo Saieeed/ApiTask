@@ -16,3 +16,8 @@ async def get_query_token(token: str = Depends( oauth2_scheme ) ):
     if token != key:
         return False 
     return True
+
+def get_token():
+    f = open ('config.json', "r")
+    data = json.load(f)
+    return data["token"]
