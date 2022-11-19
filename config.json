@@ -1,5 +1,7 @@
 {
     "token":"SHEBAK@2022",
     "authors":"authors.json",
-    "quotes" :"quotes.json"
+    "quotes" :"quotes.json",
+    "counter":0 , 
+    "csvName":"quotes_api_report_"
 }

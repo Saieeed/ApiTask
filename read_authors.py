@@ -4,8 +4,7 @@ import pandas as pd
 def get_authors(number):  
     try:
         f = open ('authors.json', "r")
-        data = json.load(f)
-         
+        data = json.load(f)    
         df_nested_list = pd.json_normalize(data, record_path =['quoteIds'] , meta=['id' , 'author'])
         df_nested_list.rename(columns = { 0 : "quoteId"}, inplace=True)
         #print(data)

@@ -4,6 +4,8 @@ from model import Model
 
 
 class  myResponse :
+    
+          
     def generate_rand(self):       
         return randint(0, 100)
 

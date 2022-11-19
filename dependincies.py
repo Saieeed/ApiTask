@@ -14,6 +14,5 @@ async def get_query_token(token: str = Depends( oauth2_scheme ) ):
     key = data["token"]
     f.close()
     if token != key:
-        #return "You are not authorized to use this API!"
         return False 
     return True

@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse
 from fastapi.security import OAuth2PasswordBearer
 from dependincies import get_query_token
 from get_response import myResponse 
+from savedata import save_request
 import uvicorn 
 import json
 
@@ -22,6 +23,7 @@ async def read_items(  response : Response , check : int  = Depends(get_query_to
         if r.quoteId == "" or r.quoteName == "" or r.author ==  "":
             return JSONResponse(content={"Message": "couldn't load data"}, status_code=500)
         else:
+            save_request(r.quoteId)
             return JSONResponse(content={"quoteId":str(r.quoteId)  , "quote":str(r.quoteName) , "author":r.author} , status_code=200)
 
 
