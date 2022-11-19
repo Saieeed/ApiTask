@@ -1,4 +1,3 @@
-import json
 from random import randint 
 from model import Model 
 

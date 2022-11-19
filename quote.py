@@ -1,5 +1,4 @@
 from get_response import myResponse 
-from fastapi import Depends,FastAPI , Header, HTTPException ,Response,status , Request
 from fastapi.responses import JSONResponse
 from response_model import QuoteResponse
 from savedata import save_request 

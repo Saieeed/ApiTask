@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function myFunction() {
+          fetch("http://127.0.0.1:8000/quote/random" ,{
+            headers: {Authorization: 'Bearer SHEBAK@2022'}
+          }).then(response=>response.json())
+          .then(data=>{
+            try{
+            document.getElementById("demo").innerHTML =  "quoteId : " +data.quoteId ; 
+            document.getElementById("demo2").innerHTML =  "quote : " +data.quote; 
+            document.getElementById("demo3").innerHTML =  "author : " +data.author ; 
+            }
+            catch{
+                document.getElementById("demo").innerHTML =  "Message : " +data.Message;  
+            }
+            console.log(data); })
+        }           
+
+        </script>
+
+        <p class="name">Task Implementaion</p>
+        <br>
+        <br> 
+        <button onclick="myFunction()">Create Request</button>
+
+        <div >
+            
+            <div >
+                <h4 id = "demo"></h1>
+                <h4 id = "demo2"></h1>
+                <h4 id = "demo3"></h1>
+            </div>
+            
+        </div>
+      
+
+</body>
+</html>
+

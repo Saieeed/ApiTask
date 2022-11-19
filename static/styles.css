@@ -1,0 +1,63 @@
+body{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height: auto;
+}
+button {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+       }
+
+div {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:  20vh;
+       }
+
+h4 {
+        display: flex ; 
+        align-items: center;
+        justify-content: center;
+        width: 20vh;
+        padding: 6px;
+
+           }
+    
+ p {
+    align-items: center;
+    font-size: 1rem;
+    justify-content:center;
+    padding: 10px;
+
+ }
+ 
+ button {
+     padding: 6px;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     align-items: center;
+     width: 20vh;
+     height: 5vh;
+
+     background-color: #3498db;
+
+ }
+ 
+ button.blue {
+     background-color: #3498db;
+ }
+ 
+ button.green {
+     background-color: #2ecc71;
+ }
+ 
+ button.orange {
+    background-color: orangered;
+ }

@@ -1,12 +1,12 @@
-from fastapi import Depends,FastAPI , Header, HTTPException ,Response,status , Request
-from fastapi.responses import JSONResponse
-from fastapi.security import OAuth2PasswordBearer
+from fastapi import Depends,FastAPI  ,Response,status ,Request
+from fastapi.responses import JSONResponse , HTMLResponse
 from dependincies import get_query_token ,get_token
-from get_response import myResponse 
 from savedata import save_request
 from quote import Quote 
 from response_model import QuoteResponse
 import uvicorn 
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
@@ -20,8 +20,16 @@ app = FastAPI()
 #       return JSONResponse(content={"Message": "You are not authorized to use this API!"}, status_code=401)
 #   else :
 #         return call_next(request)
-    
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+
+templates = Jinja2Templates(directory="templates")
+
+
+@app.get ("/",response_class=HTMLResponse)
+async def home (request: Request):
+    return templates.TemplateResponse("index.html" ,{"request": request})
 
 @app.get(
     "/quote/random",
